@@ -1,0 +1,128 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+html, body {
+  -webkit-tap-highlight-color: transparent;
+  -webkit-touch-callout: none;
+  user-select: none;
+  overscroll-behavior: none;
+}
+
+.begin-btn {
+  -webkit-appearance: none;
+  touch-action: manipulation;
+}
+
+@media (max-width: 600px) {
+  .prompt {
+    font-size: 1.1rem;
+    letter-spacing: 0.3em;
+  }
+  .begin-btn {
+    font-size: 0.9rem;
+    padding: 0.7rem 2rem;
+  }
+}
+
+html, body {
+  width: 100%;
+  height: 100%;
+  background: #000;
+  overflow: hidden;
+  font-family: 'Georgia', serif;
+  color: #e8e8e8;
+  cursor: default;
+}
+
+#sky {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  display: block;
+}
+
+.overlay {
+  position: fixed;
+  inset: 0;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 3rem;
+  z-index: 10;
+  transition: opacity 2s ease;
+}
+
+.overlay.hidden {
+  opacity: 0;
+  pointer-events: none;
+}
+
+.prompt {
+  font-size: 1.5rem;
+  letter-spacing: 0.4em;
+  font-weight: 300;
+  opacity: 0.7;
+  text-transform: lowercase;
+}
+
+.fade-in {
+  animation: fadeIn 3s ease forwards;
+  opacity: 0;
+}
+
+@keyframes fadeIn {
+  to { opacity: 0.7; }
+}
+
+.begin-btn {
+  background: transparent;
+  border: 1px solid rgba(255,255,255,0.3);
+  color: #e8e8e8;
+  padding: 0.8rem 2.5rem;
+  font-family: 'Georgia', serif;
+  font-size: 1rem;
+  letter-spacing: 0.3em;
+  cursor: pointer;
+  border-radius: 2px;
+  transition: all 0.6s ease;
+  text-transform: lowercase;
+  opacity: 0;
+  animation: fadeIn 4s ease 1s forwards;
+}
+
+.begin-btn:hover {
+  background: rgba(255,255,255,0.05);
+  border-color: rgba(255,255,255,0.6);
+  letter-spacing: 0.5em;
+}
+
+.status {
+  position: fixed;
+  bottom: 3rem;
+  left: 50%;
+  transform: translateX(-50%);
+  z-index: 10;
+  transition: opacity 1s ease;
+}
+
+.status.hidden {
+  opacity: 0;
+  pointer-events: none;
+}
+
+.status p {
+  font-size: 0.9rem;
+  letter-spacing: 0.3em;
+  opacity: 0.5;
+  animation: pulse 2s ease infinite;
+}
+
+@keyframes pulse {
+  0%, 100% { opacity: 0.3; }
+  50% { opacity: 0.7; }
+}
